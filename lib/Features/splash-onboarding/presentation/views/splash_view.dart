@@ -1,4 +1,4 @@
-import 'package:_5omasia/Features/splash/presentation/views/widgets/splash_view_Body.dart';
+import 'package:_5omasia/Features/splash-onboarding/presentation/views/widgets/splash_view_Body.dart';
 import 'package:_5omasia/constants.dart';
 import 'package:flutter/material.dart';
 

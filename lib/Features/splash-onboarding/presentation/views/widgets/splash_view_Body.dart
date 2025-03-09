@@ -1,5 +1,7 @@
+import 'package:_5omasia/Core/utils/app_router.dart';
 import 'package:_5omasia/Core/utils/assets.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -17,6 +19,8 @@ class _SplashViewBodyState extends State<SplashViewBody>
   void initState() {
     super.initState();
     initFadeAnimation();
+
+    navigateToOnboarding();
   }
 
   @override
@@ -36,15 +40,23 @@ class _SplashViewBodyState extends State<SplashViewBody>
   }
 
   void initFadeAnimation() {
-    // إنشاء الـ animationController
     animationController = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 2),
+      duration: const Duration(seconds: 4),
     );
 
     fadeAnimation =
-        Tween<double>(begin: 0.0, end: 1.0).animate(animationController);
+        Tween<double>(begin: 0, end: 2).animate(animationController);
 
     animationController.forward();
+  }
+
+  void navigateToOnboarding() {
+    Future.delayed(
+      const Duration(seconds: 4),
+      () {
+        GoRouter.of(context).push(AppRouter.kOnboardingView);
+      },
+    );
   }
 }
